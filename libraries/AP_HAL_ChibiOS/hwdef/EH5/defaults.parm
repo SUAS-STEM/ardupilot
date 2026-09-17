@@ -1,0 +1,5 @@
+@include ../CubeOrangePlus/defaults.parm
+
+# Enable QuadPlane support for the fixed-wing HTOL airframe.
+Q_ENABLE 1
+Q_FRAME_CLASS 1

@@ -1,0 +1,40 @@
+# EH5 Cube Orange+ fixed-wing HTOL target
+
+include ../CubeOrangePlus/hwdef.dat
+
+# Reuse the Cube Orange+ bootloader; EH5 changes firmware configuration only.
+USE_BOOTLOADER_FROM_BOARD CubeOrangePlus
+
+define AP_CUSTOM_FIRMWARE_STRING "EH5"
+
+# Diagnostics
+define HAL_LOGGING_ENABLED 1
+define AP_INERTIALSENSOR_BATCHSAMPLER_ENABLED 1
+define HAL_GYROFFT_ENABLED 1
+define AP_INERTIALSENSOR_HARMONICNOTCH_ENABLED 1
+
+# ESC / motor monitoring
+define HAL_WITH_ESC_TELEM 1
+
+# Safety scripts
+define AP_SCRIPTING_ENABLED 1
+define AP_SCRIPTING_BINDING_MOTORS_ENABLED 1
+define AP_SCRIPTING_BINDING_VEHICLE_ENABLED 1
+
+# Wind-related estimator features
+define EK3_FEATURE_DRAG_FUSION 1
+define HAL_BARO_WIND_COMP_ENABLED 1
+
+# SIYI A8 Mini camera/gimbal
+define HAL_MOUNT_ENABLED 1
+define HAL_MOUNT_SIYI_ENABLED 1
+define AP_CAMERA_ENABLED 1
+
+# Optional parachute hardware support
+define HAL_PARACHUTE_ENABLED 1
+
+# Servo-operated drop bay via the standard gripper interface
+define AP_GRIPPER_ENABLED 1
+define AP_GRIPPER_SERVO_ENABLED 1
+
+AUTOBUILD_TARGETS Plane
